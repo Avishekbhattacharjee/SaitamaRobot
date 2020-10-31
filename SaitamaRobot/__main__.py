@@ -210,7 +210,10 @@ def start(update: Update, context: CallbackContext):
                              text="🔔 Updates Channel",
                              url="https://t.me/AlitaNews")
                      ],
-                      [InlineKeyboardButton(text="My Super Commands ⚙️", callback_data="help_back")]
+                      [InlineKeyboardButton(
+                        text="Super Commands ⚙️", 
+                        callback_data="help_back")
+                      ],
                       [
                          InlineKeyboardButton(
                              text="🗄 Source",
