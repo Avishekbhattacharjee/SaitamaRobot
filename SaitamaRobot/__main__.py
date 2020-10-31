@@ -54,7 +54,9 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I'm a powerful group management bot 🤖
+
 Add me to your groups as admin to manage your groups with my commands🤩
+
 You can find my list of available commands with /help .
 """
 
@@ -78,8 +80,7 @@ And the following:
 
 SAITAMA_IMG = "https://telegra.ph/file/65dec112d158345dd1cb5.png"
 
-DONATE_STRING = """Heya, glad to hear you want to donate! 
-Message @Meremaut if you want to donate money"""
+DONATE_STRING = """Heya, glad to hear you want to donate! """
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -209,16 +210,13 @@ def start(update: Update, context: CallbackContext):
                              text="🔔 Updates Channel",
                              url="https://t.me/AlitaNews")
                      ],
-                     [
-                         InlineKeyboardButton(
-                             text="Commands ⚙️ ",
-                             callback_data="help_back")
-                     ],
-                     [
+                      [
                          InlineKeyboardButton(
                              text="🗄 Source",
-                             url="https://github.com/")
+                             url="https://github.com/Wempire/AlitaRobot")
                      ]]))
+            
+             keyboard += [[InlineKeyboardButton(text="My Super Commands ⚙️", callback_data="help_back")]]
     else:
         update.effective_message.reply_text(
             "Heya :) PM me if you have any questions on how to use me!\n<b>Up since:</b> <code>{}</code>".format(uptime),
