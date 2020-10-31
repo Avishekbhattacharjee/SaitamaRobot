@@ -115,7 +115,7 @@ def sudo_plus(func):
             update.effective_message.delete()
         else:
             update.effective_message.reply_text(
-                "Who dis non-admin telling me what to do? You want a punch?")
+                "You're missing this following rights to do this!")
 
     return is_sudo_plus_func
 
@@ -171,7 +171,7 @@ def user_admin(func):
             update.effective_message.delete()
         else:
             update.effective_message.reply_text(
-                "Who dis non-admin telling me what to do? You want a punch?")
+                "You're missing this following rights to do this!")
 
     return is_admin
 
