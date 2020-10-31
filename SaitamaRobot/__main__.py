@@ -53,9 +53,11 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
+
 I'm a powerful group management bot 🤖
 
-Add me to your groups as admin to manage your groups with my commands🤩
+Searching a simple bugs free group management bot
+then you can give me a try to manage your Groups.
 
 You can find my list of available commands with /help .
 """
@@ -210,14 +212,11 @@ def start(update: Update, context: CallbackContext):
                              text="🔔 Updates Channel",
                              url="https://t.me/AlitaNews")
                      ],
-                      [InlineKeyboardButton(
-                        text="Super Commands ⚙️", 
-                        callback_data="help_back")
-                     ],
+                     
                       [
                          InlineKeyboardButton(
-                             text="🗄 Source",
-                             url="https://github.com/Wempire/AlitaRobot")
+                             text="Basic Help🖤",
+                             url="https://telegra.ph/Alita-Robot-10-31")
                      ]]))
             
     else:
