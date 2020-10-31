@@ -210,13 +210,13 @@ def start(update: Update, context: CallbackContext):
                              text="🔔 Updates Channel",
                              url="https://t.me/AlitaNews")
                      ],
+                      [InlineKeyboardButton(text="My Super Commands ⚙️", callback_data="help_back")]
                       [
                          InlineKeyboardButton(
                              text="🗄 Source",
                              url="https://github.com/Wempire/AlitaRobot")
                      ]]))
             
-             keyboard += [[InlineKeyboardButton(text="My Super Commands ⚙️", callback_data="help_back")]]
     else:
         update.effective_message.reply_text(
             "Heya :) PM me if you have any questions on how to use me!\n<b>Up since:</b> <code>{}</code>".format(uptime),
