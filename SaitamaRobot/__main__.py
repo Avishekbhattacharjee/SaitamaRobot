@@ -213,9 +213,7 @@ def start(update: Update, context: CallbackContext):
                              url="https://t.me/AlitaNews")
                      ],
                       [
-                         InlineKeyboardButton(
-                             text="Commands",
-                             callback_data="help_back")
+                         InlineKeyboardButton(text="Commands", callback_data="help_back")
                       ],  
                       [
                          InlineKeyboardButton(
