@@ -212,7 +212,11 @@ def start(update: Update, context: CallbackContext):
                              text="🔔 Updates Channel",
                              url="https://t.me/AlitaNews")
                      ],
-                     
+                      [
+                         InlineKeyboardButton(
+                             text="Commands",
+                             callback_data="help_back")
+                      ],  
                       [
                          InlineKeyboardButton(
                              text="Basic Help🖤",
