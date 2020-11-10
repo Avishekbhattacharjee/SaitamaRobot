@@ -213,8 +213,10 @@ def start(update: Update, context: CallbackContext):
                              url="https://t.me/AlitaNews")
                      ],
                       [
-                         InlineKeyboardButton(text="Commands", callback_data="help_back")
-                      ],  
+                          InlineKeyboardButton(
+                              text="❔ Help", 
+                              url="https://t.me/LyndaRobot?start=help")
+                      ],
                       [
                          InlineKeyboardButton(
                              text="Basic Help🖤",
