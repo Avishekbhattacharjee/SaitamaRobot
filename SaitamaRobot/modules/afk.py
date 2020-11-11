@@ -8,8 +8,7 @@ from SaitamaRobot import dispatcher
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleRegexHandler
 from SaitamaRobot.modules.sql import afk_sql as sql
 from SaitamaRobot.modules.users import get_user_id
-
-from SaitamaRobot.modules.translations.strings import tld
+import tld
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
