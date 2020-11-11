@@ -187,7 +187,6 @@ def warn_user(update: Update, context: CallbackContext) -> str:
 @run_async
 @user_admin
 @bot_admin
-@user_can_ban
 @loggable
 def reset_warns(update: Update, context: CallbackContext) -> str:
     args = context.args
