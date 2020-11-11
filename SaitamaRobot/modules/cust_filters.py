@@ -14,7 +14,7 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html, escape_markdown
 
-from SaitamaRobot import dispatcher, LOGGER, DRAGONS
+from SaitamaRobot import dispatcher, LOGGER, SUPPORT_CHAT
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler
 from SaitamaRobot.modules.helper_funcs.chat_status import user_admin
 from SaitamaRobot.modules.helper_funcs.extraction import extract_text
@@ -527,7 +527,14 @@ def get_exception(excp, filt, chat):
 
 # NOT ASYNC NOT A HANDLER
 def addnew_filter(update, chat_id, keyword, text, file_type, file_id, buttons):
-    msg = update.effective_message
+    chat = update.effective_chat
+    chat_id = update.effective_chat.id
+    user = update.effective_user
+    message = update.effective_message  # type: Optional[Message]
+    user_member = chat.get_member(user.id)
+    if user_member.can_change_info == False:
+    	    message.reply_text("You don't have permission to do this!")
+    	    return
     totalfilt = sql.get_chat_triggers(chat_id)
     if len(totalfilt) >= 150:  # Idk why i made this like function....
         msg.reply_text("This group has reached its max filters limit of 150.")
@@ -560,20 +567,16 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
  • `/filters`*:* List all active filters saved in the chat.
-
 *Admin only:*
  • `/filter <keyword> <reply message>`*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'\
 is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
 keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
 doin?
  • `/stop <filter keyword>`*:* Stop that filter.
-
 *Chat creator only:*
  • `/removeallfilters`*:* Remove all chat filters at once.
-
 *Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
 Check `/markdownhelp` to know more!
-
 """
 
 __mod_name__ = "Filters"
