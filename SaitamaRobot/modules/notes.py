@@ -212,7 +212,7 @@ def slash_get(update: Update, context: CallbackContext):
 def save(update: Update, context: CallbackContext):
     chat = update.effective_chat
     chat_id = update.effective_chat.id
-    msg = update.effective_message  # type: Optional[Message]
+    message = update.effective_message  # type: Optional[Message]
     user = update.effective_user
     user_member = chat.get_member(user.id)
     if user_member.can_change_info == False:
@@ -255,7 +255,7 @@ def clear(update: Update, context: CallbackContext):
     args = context.args
     chat = update.effective_chat
     chat_id = update.effective_chat.id
-    msg = update.effective_message  # type: Optional[Message]
+    message = update.effective_message  # type: Optional[Message]
     user = update.effective_user
     user_member = chat.get_member(user.id)
     if user_member.can_change_info == False:	
