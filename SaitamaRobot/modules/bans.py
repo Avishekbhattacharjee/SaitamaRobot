@@ -52,10 +52,10 @@ def ban(update: Update, context: CallbackContext) -> str:
     if is_user_ban_protected(chat, user_id, member) and user not in DEV_USERS:
         if user_id == OWNER_ID:
             message.reply_text(
-                "Trying to put me against a God level disaster huh?")
+                "Are you ass that you want to do this?")
             return log_message
         elif user_id in DEV_USERS:
-            message.reply_text("I can't act against our own.")
+            message.reply_text("I can't do against our own Dev.")
             return log_message
         elif user_id in DRAGONS:
             message.reply_text(
@@ -63,12 +63,12 @@ def ban(update: Update, context: CallbackContext) -> str:
             return log_message
         elif user_id in DEMONS:
             message.reply_text(
-                "Bring an order from Heroes association to fight a Demon disaster."
+                "Bring an order from Wempire Chat to fight a Demon disaster."
             )
             return log_message
         elif user_id in TIGERS:
             message.reply_text(
-                "Bring an order from Heroes association to fight a Tiger disaster."
+                "Bring an order from Wempire Chat to fight a Tiger disaster."
             )
             return log_message
         elif user_id in WOLVES:
@@ -233,7 +233,7 @@ def punch(update: Update, context: CallbackContext) -> str:
         return log_message
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("I really wish I could punch this user....")
+        message.reply_text("I can't punch this user!")
         return log_message
 
     res = chat.unban_member(user_id)  # unban on current user = kick
