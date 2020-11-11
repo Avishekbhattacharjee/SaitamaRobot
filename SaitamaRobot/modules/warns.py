@@ -3,13 +3,13 @@ import re
 from typing import Optional
 
 import telegram
-from SaitamaRobot import BAN_STICKER, TIGER_USERS, WHITELIST_USERS, dispatcher
+from SaitamaRobot import TIGERS, WOLVES, dispatcher
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler
 from SaitamaRobot.modules.helper_funcs.chat_status import (bot_admin,
                                                            can_restrict,
                                                            is_user_admin,
                                                            user_admin,
-                                                           user_admin_no_reply, user_can_ban)
+                                                           user_admin_no_reply)
 from SaitamaRobot.modules.helper_funcs.extraction import (extract_text,
                                                           extract_user,
                                                           extract_user_and_text)
