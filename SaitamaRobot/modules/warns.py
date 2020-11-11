@@ -8,7 +8,7 @@ from SaitamaRobot.modules.disable import DisableAbleCommandHandler
 from SaitamaRobot.modules.helper_funcs.chat_status import (bot_admin,
                                                            can_restrict,
                                                            is_user_admin,
-                                                           user_admin,
+                                                           user_admin, user_can_ban
                                                            user_admin_no_reply)
 from SaitamaRobot.modules.helper_funcs.extraction import (extract_text,
                                                           extract_user,
