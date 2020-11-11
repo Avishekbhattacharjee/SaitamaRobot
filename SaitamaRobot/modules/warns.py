@@ -361,6 +361,7 @@ def reply_filter(update: Update, context: CallbackContext) -> str:
 
 @run_async
 @user_admin
+@user_can_ban
 @loggable
 def set_warn_limit(update: Update, context: CallbackContext) -> str:
     args = context.args
@@ -390,6 +391,7 @@ def set_warn_limit(update: Update, context: CallbackContext) -> str:
 
 
 @run_async
+@user_can_ban
 @user_admin
 def set_warn_strength(update: Update, context: CallbackContext):
     args = context.args
