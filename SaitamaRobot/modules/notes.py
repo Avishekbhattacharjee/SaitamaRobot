@@ -259,14 +259,14 @@ def clear(update: Update, context: CallbackContext):
     user = update.effective_user
     user_member = chat.get_member(user.id)
     if user_member.can_change_info == False:	
-    	    message.reply_text("You don't have permission to do this!")
+    	    message.reply_text("You are missing the following rights to do this!")
     	    return
 
     if len(args) >= 1:
         notename = args[0].lower()
 
         if sql.rm_note(chat_id, notename):
-            update.effective_message.reply_text("Successfully removed note.")
+            update.effective_message.reply_text("Successfully removed note from this chat.")
         else:
             update.effective_message.reply_text(
                 "That's not a note in my database!")
@@ -291,7 +291,7 @@ def list_notes(update: Update, context: CallbackContext):
         msg += note_name
 
     if not note_list:
-        update.effective_message.reply_text("No notes in this chat!")
+        update.effective_message.reply_text("No notes saved in this chat!")
 
     elif len(msg) != 0:
         update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
@@ -440,8 +440,8 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- • `/get <notename>`*:* get the note with this notename
- • `#<notename>`*:* same as /get
+ • `/get` <notename>*:* get the note with this notename
+ • `#notename`*:* same as /get
  • `/notes` or `/saved`*:* list all saved notes in this chat
  • `/number` *:* Will pull the note of that number in the list. 
 If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can \
