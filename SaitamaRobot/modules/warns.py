@@ -3,13 +3,13 @@ import re
 from typing import Optional
 
 import telegram
-from SaitamaRobot import BAN_STICKER, TIGERS, WOLVES, dispatcher
+from SaitamaRobot import BAN_STICKER, TIGER_USERS, WHITELIST_USERS, dispatcher
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler
 from SaitamaRobot.modules.helper_funcs.chat_status import (bot_admin,
                                                            can_restrict,
                                                            is_user_admin,
                                                            user_admin,
-                                                           user_admin_no_reply)
+                                                           user_admin_no_reply, user_can_ban)
 from SaitamaRobot.modules.helper_funcs.extraction import (extract_text,
                                                           extract_user,
                                                           extract_user_and_text)
@@ -40,7 +40,7 @@ def warn(user: User,
         # message.reply_text("Damn admins, They are too far to be One Punched!")
         return
 
-    if user.id in TIGERS:
+    if user.id in TIGER_USERS:
         if warner:
             message.reply_text("Tigers cant be warned.")
         else:
@@ -49,7 +49,7 @@ def warn(user: User,
             )
         return
 
-    if user.id in WOLVES:
+    if user.id in WHITELIST_USERS:
         if warner:
             message.reply_text("Wolf disasters are warn immune.")
         else:
@@ -163,6 +163,7 @@ def button(update: Update, context: CallbackContext) -> str:
 @run_async
 @user_admin
 @can_restrict
+@user_can_ban
 @loggable
 def warn_user(update: Update, context: CallbackContext) -> str:
     args = context.args
@@ -187,6 +188,7 @@ def warn_user(update: Update, context: CallbackContext) -> str:
 @run_async
 @user_admin
 @bot_admin
+@user_can_ban
 @loggable
 def reset_warns(update: Update, context: CallbackContext) -> str:
     args = context.args
@@ -462,7 +464,6 @@ def __chat_settings__(chat_id, user_id):
 __help__ = """
  • `/warns <userhandle>`*:* get a user's number, and reason, of warns.
  • `/warnlist`*:* list of all current warning filters
-
 *Admins only:*
  • `/warn <userhandle>`*:* warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
  • `/resetwarn <userhandle>`*:* reset the warns for a user. Can also be used as a reply.
